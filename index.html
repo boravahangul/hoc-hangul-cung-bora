@@ -1,162 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Học Tiếng Hàn Cùng Bạn - Luyện Thi TOPIK</title>
-    <style>
-        :root {
-            --primary-color: #5c6ac4;
-            --bg-color: #f8f9fa;
-            --card-bg: #ffffff;
-            --text-color: #333333;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-        }
-        .vocabulary-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
-        }
-        .vocabulary-item:last-child {
-            border-bottom: none;
-        }
-        .word-korean {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #2d3748;
-        }
-        .word-meaning {
-            color: #718096;
-            font-size: 0.95rem;
-        }
-        button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 8px 14px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: background 0.2s;
-        }
-        button:hover {
-            background-color: #4954b8;
-        }
-        .search-box {
-            width: 100%;
-            padding: 12px;
-            font-size: 1rem;
-            border: 1px solid #cbd5e0;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            box-sizing: border-box;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>Luyện Thi & Học Từ Vựng Tiếng Hàn</h1>
-        <p>Giao diện mô phỏng tích hợp AI Audio và Tra từ điển</p>
-    </header>
-
-    <div class="container">
-        <!-- Khung tra từ điển nhanh -->
-        <div class="card">
-            <h3>Tra cứu từ vựng nhanh</h3>
-            <input type="text" id="searchInput" class="search-box" placeholder="Nhập từ tiếng Hàn hoặc tiếng Việt để tra..." onkeyup="searchVocabulary()">
-        </div>
-
-        <!-- Danh sách bài học / từ vựng -->
-        <div class="card">
-            <h3>Danh sách từ vựng TOPIK I & II</h3>
-            <div id="vocabList">
-                <div class="vocabulary-item">
-                    <div>
-                        <div class="word-korean">한국어 (Hanguk-eo)</div>
-                        <div class="word-meaning">Tiếng Hàn</div>
-                    </div>
-                    <div>
-                        <button onclick="speakKorean('한국어')">🔊 Nghe AI</button>
-                    </div>
-                </div>
-                <div class="vocabulary-item">
-                    <div>
-                        <div class="word-korean">공부하다 (gongbuhada)</div>
-                        <div class="word-meaning">Học bài</div>
-                    </div>
-                    <div>
-                        <button onclick="speakKorean('공부하다')">🔊 Nghe AI</button>
-                    </div>
-                </div>
-                <div class="vocabulary-item">
-                    <div>
-                        <div class="word-korean">합격하다 (hapgyeokada)</div>
-                        <div class="word-meaning">Đỗ, đạt kết quả (kỳ thi)</div>
-                    </div>
-                    <div>
-                        <button onclick="speakKorean('합격하다')">🔊 Nghe AI</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Tích hợp Giọng đọc AI (Sử dụng Web Speech API có sẵn trên trình duyệt)
-        function speakKorean(text) {
-            if ('speechSynthesis' in window) {
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'ko-KR'; // Đặt ngôn ngữ là tiếng Hàn
-                utterance.rate = 0.9;     // Chỉnh tốc độ đọc vừa phải cho người học
-                window.speechSynthesis.speak(utterance);
-            } else {
-                alert("Trình duyệt của bạn không hỗ trợ tính năng phát âm thanh AI!");
-            }
-        }
-
-        // Tính năng tìm kiếm / tra từ điển đơn giản
-        function searchVocabulary() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let items = document.getElementsByClassName('vocabulary-item');
-
-            for (let i = 0; i < items.length; i++) {
-                let text = items[i].innerText.toLowerCase();
-                if (text.includes(input)) {
-                    items[i].style.display = "flex";
-                } else {
-                    items[i].style.display = "none";
-                }
-            }
-        }
-    </script>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>K-Bora - Học Tiếng Hàn </title>
+    <meta name="description" content="Website học tiếng Hàn K-Bora giao diện tím pastel đáng yêu: từ vựng flashcard, ngữ pháp, luyện nghe, đề thi TOPIK, shadowing và trợ lý K-Bora AI." />
+    <meta property="og:title" content="K-Bora - Học hangul cùng Bora" />
+    <meta property="og:description" content="Website học tiếng Hàn K-Bora giao diện tím pastel đáng yêu: từ vựng flashcard, ngữ pháp, luyện nghe, đề thi TOPIK, shadowing và trợ lý K-Bora AI." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#FAF7FD] text-slate-900 font-sans antialiased selection:bg-purple-200 selection:text-purple-900">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
+
